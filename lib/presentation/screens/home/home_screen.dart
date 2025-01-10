@@ -33,23 +33,28 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
 
-          const Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+          Padding(
+            padding: const EdgeInsets.only(top: 32, bottom: 16),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(16),
                   child: CurrentWeatherComponent(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
-                Expanded(
+                const Expanded(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 16),
                     child: ForecastWeatherComponent(),
                   ),
+                ),
+                //TODO Use https://pub.dev/packages/package_info_plus
+                Text(
+                  'App Version 1.0.0',
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ],
             ),

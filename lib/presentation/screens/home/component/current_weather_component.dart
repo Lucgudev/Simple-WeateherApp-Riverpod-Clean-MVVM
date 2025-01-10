@@ -39,6 +39,13 @@ class CurrentWeatherComponent extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              'Today Weather',
+              style: appTextTheme.titleMedium,
+            ),
+          ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -53,8 +60,8 @@ class CurrentWeatherComponent extends ConsumerWidget {
               Image.network(
                 '${AppConstants.imageBaseUrl}/${data.weather[0].icon}@2x.png',
                 fit: BoxFit.cover,
-                height: 48,
-                width: 48,
+                height: 64,
+                width: 64,
               ),
             ],
           ),
