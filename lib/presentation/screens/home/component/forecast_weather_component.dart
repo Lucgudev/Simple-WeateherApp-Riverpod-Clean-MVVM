@@ -5,7 +5,7 @@ import 'package:weatherapp/core/utils/date_format_utils.dart';
 import 'package:weatherapp/data/constants/app_constants.dart';
 import 'package:weatherapp/presentation/screens/home/component/forecast_weather_provider.dart';
 
-final selectedPaymentMethodIndexProvider = StateProvider<int>((ref) => 0);
+final selectedDateIndexProvider = StateProvider<int>((ref) => 0);
 
 class ForecastWeatherComponent extends ConsumerWidget {
   const ForecastWeatherComponent({super.key});
@@ -13,7 +13,7 @@ class ForecastWeatherComponent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(forecastWeatherProvider);
-    final selectedDate = ref.watch(selectedPaymentMethodIndexProvider);
+    final selectedDate = ref.watch(selectedDateIndexProvider);
     final appTextTheme = Theme.of(context).textTheme;
 
     return state.when(data: (data) {

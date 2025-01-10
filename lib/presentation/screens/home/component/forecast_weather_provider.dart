@@ -39,23 +39,20 @@ class ForecastWeather extends _$ForecastWeather {
 
   void incrementSelectedDate() {
     final currentState = state.value;
-    final currentIndex = ref.read(selectedPaymentMethodIndexProvider);
+    final currentIndex = ref.read(selectedDateIndexProvider);
     if (currentState != null) {
-      if (ref.read(selectedPaymentMethodIndexProvider) <
-          currentState.keys.length - 1) {
-        ref.read(selectedPaymentMethodIndexProvider.notifier).state =
-            currentIndex + 1;
+      if (ref.read(selectedDateIndexProvider) < currentState.keys.length - 1) {
+        ref.read(selectedDateIndexProvider.notifier).state = currentIndex + 1;
       }
     }
   }
 
   void decrementSelectedDate() {
     final currentState = state.value;
-    final currentIndex = ref.read(selectedPaymentMethodIndexProvider);
+    final currentIndex = ref.read(selectedDateIndexProvider);
     if (currentState != null) {
-      if (ref.read(selectedPaymentMethodIndexProvider) > 0) {
-        ref.read(selectedPaymentMethodIndexProvider.notifier).state =
-            currentIndex - 1;
+      if (ref.read(selectedDateIndexProvider) > 0) {
+        ref.read(selectedDateIndexProvider.notifier).state = currentIndex - 1;
       }
     }
   }
