@@ -1,0 +1,4 @@
+enum BackgroundImage {
+  day,
+  night,
+}
