@@ -13,10 +13,16 @@ class CurrentWeather extends _$CurrentWeather {
     return await getCurrentWeather();
   }
 
-  Future<CurrentWeatherEntity> getCurrentWeather() async {
+  Future<CurrentWeatherEntity> getCurrentWeather(
+      {LocationEntity? locationEntity}) async {
     state = const AsyncLoading();
-    final location =
-        await ref.read(weatherGeoLocatorProvider).getCurrentLocation();
+
+    late LocationEntity location;
+    if (locationEntity != null) {
+      location = locationEntity;
+    } else {
+      location = await ref.read(weatherGeoLocatorProvider).getCurrentLocation();
+    }
 
     final response = await ref
         .read(weatherRepositoryProvider)
@@ -28,10 +34,7 @@ class CurrentWeather extends _$CurrentWeather {
       LocationEntity locationEntity) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      final response = await ref
-          .read(weatherRepositoryProvider)
-          .getCurrentWeather(locationEntity.latitude, locationEntity.longitude);
-      return response;
+      return getCurrentWeather(locationEntity: locationEntity);
     });
   }
 }

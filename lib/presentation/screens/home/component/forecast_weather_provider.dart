@@ -16,10 +16,16 @@ class ForecastWeather extends _$ForecastWeather {
     return await getForecastWeather();
   }
 
-  Future<Map<String, List<CurrentWeatherEntity>>> getForecastWeather() async {
+  Future<Map<String, List<CurrentWeatherEntity>>> getForecastWeather(
+      {LocationEntity? locationEntity}) async {
     state = const AsyncLoading();
-    final location =
-        await ref.read(weatherGeoLocatorProvider).getCurrentLocation();
+
+    late LocationEntity location;
+    if (locationEntity != null) {
+      location = locationEntity;
+    } else {
+      location = await ref.read(weatherGeoLocatorProvider).getCurrentLocation();
+    }
 
     final response = await ref
         .read(weatherRepositoryProvider)
@@ -76,36 +82,7 @@ class ForecastWeather extends _$ForecastWeather {
       LocationEntity locationEntity) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
-      final response = await ref
-          .read(weatherRepositoryProvider)
-          .getForecastWeather(
-              locationEntity.latitude, locationEntity.longitude);
-
-      Map<String, List<CurrentWeatherEntity>> groupedByDay = {};
-      for (var forecast in response.list) {
-        String dateKey = ref
-            .read(timeHelperProvider)
-            .getTimeFromTimestamp(forecast.dt * 1000)
-            .toString()
-            .split(' ')[0]; // Extract only the date
-
-        // Parse the timestamp string into a DateTime object
-        DateTime dateTime = DateTime.parse(dateKey);
-
-        // Format the DateTime object to '13 Apr 2021' format
-        String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
-        //only pick 3 day forecast
-        if (groupedByDay.containsKey(formattedDate)) {
-          groupedByDay[formattedDate]!.add(forecast);
-        } else {
-          if (groupedByDay.length < 3) {
-            groupedByDay[formattedDate] = [forecast];
-          } else {
-            break;
-          }
-        }
-      }
-      return groupedByDay;
+      return await getForecastWeather(locationEntity: locationEntity);
     });
   }
 }
