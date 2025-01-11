@@ -116,7 +116,6 @@ class PermissionDialog extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
-                width: 85,
                 child: OutlinedButton(
                   onPressed: () {
                     onDialogClosed?.call();
@@ -129,7 +128,6 @@ class PermissionDialog extends StatelessWidget {
                 width: 8,
               ),
               SizedBox(
-                width: 85,
                 child: ElevatedButton(
                   onPressed: () {
                     onDialogClosed?.call();

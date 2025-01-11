@@ -16,6 +16,11 @@ ThemeData get appTheme {
         foregroundColor: AppColors.bgPrimary,
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+      side: const BorderSide(color: AppColors.colorPrimary),
+      foregroundColor: AppColors.colorPrimary,
+    )),
     textTheme: AppTextTheme.appTextTheme,
     inputDecorationTheme: const InputDecorationTheme(
       contentPadding: const EdgeInsets.fromLTRB(12.0, 14.0, 12.0, 14.0),
