@@ -34,9 +34,9 @@ class PermissionDialog extends StatelessWidget {
       context,
       onPressed: onPressed,
       icon: Icons.fmd_good_rounded,
-      title: title ?? 'Allow \"Weather App\" to access your location?',
+      title: title ?? 'Allow \"Weather Viewer\" to access your location?',
       subTitle: subtitle ??
-          'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+          'Please go to Settings › Privacy & Security › Location Services › Weather Viewer, then allow the location access and try again.',
       negativeBtnLabel: negativeBtnLabel,
       positiveBtnLabel: positiveBtnLabel,
       iconColor: AppColors.colorPrimary,

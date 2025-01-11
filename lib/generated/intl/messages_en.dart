@@ -53,7 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "latitude": MessageLookupByLibrary.simpleMessage("Latitude"),
         "longitude": MessageLookupByLibrary.simpleMessage("Longitude"),
         "rationaleDesc": MessageLookupByLibrary.simpleMessage(
-            "Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again."),
+            "Please go to Settings › Privacy & Security › Location Services › Weather Viewer, then allow the location access and try again."),
         "rationaleTitle":
             MessageLookupByLibrary.simpleMessage("Unable to detect location"),
         "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),

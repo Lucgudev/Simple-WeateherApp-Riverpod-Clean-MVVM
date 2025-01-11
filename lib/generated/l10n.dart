@@ -180,10 +180,10 @@ class S {
     );
   }
 
-  /// `Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.`
+  /// `Please go to Settings › Privacy & Security › Location Services › Weather Viewer, then allow the location access and try again.`
   String get rationaleDesc {
     return Intl.message(
-      'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+      'Please go to Settings › Privacy & Security › Location Services › Weather Viewer, then allow the location access and try again.',
       name: 'rationaleDesc',
       desc: '',
       args: [],
