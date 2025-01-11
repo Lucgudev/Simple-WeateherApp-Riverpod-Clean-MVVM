@@ -39,14 +39,14 @@ class ForecastWeather extends _$ForecastWeather {
       // Format the DateTime object to '13 Apr 2021' format
       String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
       //only pick 3 day forecast
-      if (groupedByDay.length < 3) {
-        if (groupedByDay.containsKey(formattedDate)) {
-          groupedByDay[formattedDate]!.add(forecast);
-        } else {
-          groupedByDay[formattedDate] = [forecast];
-        }
+      if (groupedByDay.containsKey(formattedDate)) {
+        groupedByDay[formattedDate]!.add(forecast);
       } else {
-        break;
+        if (groupedByDay.length < 3) {
+          groupedByDay[formattedDate] = [forecast];
+        } else {
+          break;
+        }
       }
     }
     return groupedByDay;
@@ -95,14 +95,14 @@ class ForecastWeather extends _$ForecastWeather {
         // Format the DateTime object to '13 Apr 2021' format
         String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
         //only pick 3 day forecast
-        if (groupedByDay.length < 3) {
-          if (groupedByDay.containsKey(formattedDate)) {
-            groupedByDay[formattedDate]!.add(forecast);
-          } else {
-            groupedByDay[formattedDate] = [forecast];
-          }
+        if (groupedByDay.containsKey(formattedDate)) {
+          groupedByDay[formattedDate]!.add(forecast);
         } else {
-          break;
+          if (groupedByDay.length < 3) {
+            groupedByDay[formattedDate] = [forecast];
+          } else {
+            break;
+          }
         }
       }
       return groupedByDay;
