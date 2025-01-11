@@ -1,0 +1,14 @@
+{
+  "currentWeatherComponentTitle": "Today Weather",
+  "currentWeatherComponentHighestTemp": "Highest Temperature",
+  "currentWeatherComponentLowestTemp": "Lowest Temperature",
+  "currentWeatherComponentErrorMessage": "Failed to load current weather data",
+  "refresh": "Refresh",
+  "wind": "Wind",
+  "forecastWeatherComponentTitle": "Hourly Forecast",
+  "forecastWeatherComponentErrorMessage" : "Failed to load forecast weather data",
+  "cancel": "Cancel",
+  "setting": "Setting",
+  "rationaleTitle": "Unable to detect location",
+  "rationaleDesc": "Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again."
+}

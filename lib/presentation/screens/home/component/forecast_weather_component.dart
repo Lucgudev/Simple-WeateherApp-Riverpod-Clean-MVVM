@@ -4,6 +4,7 @@ import 'package:weatherapp/core/theme/app_colors.dart';
 import 'package:weatherapp/core/utils/date_format_utils.dart';
 import 'package:weatherapp/data/constants/app_constants.dart';
 import 'package:weatherapp/presentation/screens/home/component/forecast_weather_provider.dart';
+import 'package:weatherapp/generated/l10n.dart';
 
 final selectedDateIndexProvider = StateProvider<int>((ref) => 0);
 
@@ -24,7 +25,7 @@ class ForecastWeatherComponent extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16, bottom: 8),
             child: Text(
-              'Hourly Forecast',
+              S.of(context).forecastWeatherComponentTitle,
               style: appTextTheme.titleMedium,
             ),
           ),
@@ -123,14 +124,14 @@ class ForecastWeatherComponent extends ConsumerWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Text(
-              'Failed to load forecast weather data',
+              S.of(context).forecastWeatherComponentErrorMessage,
               style: appTextTheme.bodyMedium,
             ),
             ElevatedButton(
                 onPressed: () {
                   ref.invalidate(forecastWeatherProvider);
                 },
-                child: const Text('Refresh'))
+                child: Text(S.of(context).refresh))
           ],
         ),
       );

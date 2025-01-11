@@ -11,6 +11,7 @@ import 'package:weatherapp/presentation/screens/home/component/current_weather_p
 import 'package:weatherapp/presentation/screens/home/component/forecast_weather_component.dart';
 import 'package:weatherapp/presentation/screens/home/component/forecast_weather_provider.dart';
 import 'package:weatherapp/presentation/screens/home/home_screen_viewmodel.dart';
+import 'package:weatherapp/generated/l10n.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -86,11 +87,10 @@ class HomeScreen extends ConsumerWidget {
         await PermissionDialog.showLocationPermissionDialog(
           context,
           onPressed: openAppSettings,
-          negativeBtnLabel: 'Cancel',
-          positiveBtnLabel: 'Setting',
-          title: 'Unable to detect location',
-          subtitle:
-              'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+          negativeBtnLabel: S.current.cancel,
+          positiveBtnLabel: S.current.setting,
+          title: S.current.rationaleTitle,
+          subtitle: S.current.rationaleDesc,
         );
       } else {
         final permissionResult = await Permission.location.request();
@@ -106,11 +106,10 @@ class HomeScreen extends ConsumerWidget {
         await PermissionDialog.showLocationPermissionDialog(
           context,
           onPressed: openAppSettings,
-          negativeBtnLabel: 'Cancel',
-          positiveBtnLabel: 'Setting',
-          title: 'Unable to detect location',
-          subtitle:
-              'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+          negativeBtnLabel: S.current.cancel,
+          positiveBtnLabel: S.current.setting,
+          title: S.current.rationaleTitle,
+          subtitle: S.current.rationaleDesc,
         );
         return;
       }

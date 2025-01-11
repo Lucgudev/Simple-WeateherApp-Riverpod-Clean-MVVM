@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weatherapp/core/theme/app_colors.dart';
 import 'package:weatherapp/data/constants/app_constants.dart';
+import 'package:weatherapp/generated/l10n.dart';
 import 'package:weatherapp/presentation/screens/home/component/current_weather_provider.dart';
 
 class CurrentWeatherComponent extends ConsumerWidget {
@@ -42,7 +43,7 @@ class CurrentWeatherComponent extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
-              'Today Weather',
+              S.of(context).currentWeatherComponentTitle,
               style: appTextTheme.titleMedium,
             ),
           ),
@@ -86,7 +87,7 @@ class CurrentWeatherComponent extends ConsumerWidget {
                         size: 32,
                       ),
                       Text(
-                        'Wind',
+                        S.of(context).wind,
                         style: appTextTheme.labelSmall,
                       ),
                       Text(
@@ -102,7 +103,7 @@ class CurrentWeatherComponent extends ConsumerWidget {
                         size: 32,
                       ),
                       Text(
-                        'Highest Temperature',
+                        S.of(context).currentWeatherComponentHighestTemp,
                         style: appTextTheme.labelSmall,
                       ),
                       Text(
@@ -118,7 +119,7 @@ class CurrentWeatherComponent extends ConsumerWidget {
                         size: 32,
                       ),
                       Text(
-                        'Lowest Temperature',
+                        S.of(context).currentWeatherComponentLowestTemp,
                         style: appTextTheme.labelSmall,
                       ),
                       Text(
@@ -139,14 +140,14 @@ class CurrentWeatherComponent extends ConsumerWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Text(
-              'Failed to load current weather data',
+              S.of(context).currentWeatherComponentErrorMessage,
               style: appTextTheme.bodyMedium,
             ),
             ElevatedButton(
                 onPressed: () {
                   ref.invalidate(currentWeatherProvider);
                 },
-                child: const Text('Refresh'))
+                child: Text(S.of(context).refresh))
           ],
         ),
       );
