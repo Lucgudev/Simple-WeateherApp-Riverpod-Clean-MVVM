@@ -18,7 +18,7 @@ class CurrentWeatherComponent extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
                 border: Border.all(color: AppColors.textPrimary),
                 borderRadius: BorderRadius.circular(12)),
