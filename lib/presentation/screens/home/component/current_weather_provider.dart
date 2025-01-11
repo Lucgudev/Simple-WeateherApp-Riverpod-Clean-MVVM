@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:weatherapp/core/geo_locator/weather_geo_locator_impl.dart';
 import 'package:weatherapp/data/repositories/weather_repository_impl.dart';
 import 'package:weatherapp/domain/entities/current_weather_entity.dart';
 
@@ -12,9 +13,12 @@ class CurrentWeather extends _$CurrentWeather {
   }
 
   Future<CurrentWeatherEntity> getCurrentWeather() async {
+    final location =
+        await ref.read(weatherGeoLocatorImplProvider).getCurrentLocation();
+
     final response = await ref
         .read(weatherRepositoryProvider)
-        .getCurrentWeather(-6.1763699, 106.8204524);
+        .getCurrentWeather(location.latitude, location.longitude);
     return response;
   }
 }

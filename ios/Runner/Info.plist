@@ -28,6 +28,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<!-- Permission options for the `location` group -->
+    		<key>NSLocationWhenInUseUsageDescription</key>
+    		<string>Your location is used to provide some events and recommended content from creator who nearby with your location</string>
+    		<key>NSLocationAlwaysUsageDescription</key>
+    		<string>Your location is used to provide some events and recommended content from creator who nearby with your location</string>
+    		<!-- Permission options for the `location` group -->
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

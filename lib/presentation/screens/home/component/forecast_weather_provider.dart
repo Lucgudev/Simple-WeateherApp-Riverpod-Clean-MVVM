@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:weatherapp/core/geo_locator/weather_geo_locator_impl.dart';
 import 'package:weatherapp/data/repositories/weather_repository_impl.dart';
 import 'package:weatherapp/domain/entities/current_weather_entity.dart';
 import 'package:intl/intl.dart';
@@ -14,10 +15,14 @@ class ForecastWeather extends _$ForecastWeather {
   }
 
   Future<Map<String, List<CurrentWeatherEntity>>> getForecastWeather() async {
-    Map<String, List<CurrentWeatherEntity>> groupedByDay = {};
+    final location =
+        await ref.read(weatherGeoLocatorImplProvider).getCurrentLocation();
+
     final response = await ref
         .read(weatherRepositoryProvider)
-        .getForecastWeather(-6.1763699, 106.8204524);
+        .getForecastWeather(location.latitude, location.longitude);
+
+    Map<String, List<CurrentWeatherEntity>> groupedByDay = {};
     for (var forecast in response.list) {
       String dateKey = DateTime.fromMillisecondsSinceEpoch(forecast.dt * 1000)
           .toString()

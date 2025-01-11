@@ -1,9 +1,15 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:weatherapp/domain/entities/background_image.dart';
+import 'package:weatherapp/presentation/dialog/permission_dialog.dart';
 import 'package:weatherapp/presentation/screens/home/component/current_weather_component.dart';
+import 'package:weatherapp/presentation/screens/home/component/current_weather_provider.dart';
 import 'package:weatherapp/presentation/screens/home/component/forecast_weather_component.dart';
+import 'package:weatherapp/presentation/screens/home/component/forecast_weather_provider.dart';
 import 'package:weatherapp/presentation/screens/home/home_screen_viewmodel.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -12,6 +18,10 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.read(homeScreenViewModelProvider);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await requestPermissionLocation(context, ref);
+    });
 
     return Scaffold(
       //appBar: AppBar(),
@@ -62,5 +72,53 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  Future<void> requestPermissionLocation(
+      BuildContext context, WidgetRef ref) async {
+    final permissionStatus = await Permission.location.status;
+    if (permissionStatus == PermissionStatus.granted) {
+      return;
+    }
+
+    if (Platform.isAndroid) {
+      if (await Permission.location.shouldShowRequestRationale) {
+        await PermissionDialog.showLocationPermissionDialog(
+          context,
+          onPressed: openAppSettings,
+          negativeBtnLabel: 'Cancel',
+          positiveBtnLabel: 'Setting',
+          title: 'Unable to detect location',
+          subtitle:
+              'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+        );
+      } else {
+        final permissionResult = await Permission.location.request();
+        if (permissionResult == PermissionStatus.granted) {
+          ref.invalidate(currentWeatherProvider);
+          ref.invalidate(forecastWeatherProvider);
+          return;
+        }
+      }
+    } else {
+      final permissionStatus = await Permission.location.status;
+      if (permissionStatus.isPermanentlyDenied) {
+        await PermissionDialog.showLocationPermissionDialog(
+          context,
+          onPressed: openAppSettings,
+          negativeBtnLabel: 'Cancel',
+          positiveBtnLabel: 'Setting',
+          title: 'Unable to detect location',
+          subtitle:
+              'Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.',
+        );
+        return;
+      }
+
+      final permissionResult = await Permission.location.request();
+      if (permissionResult == PermissionStatus.granted) {
+        return;
+      }
+    }
   }
 }
