@@ -71,6 +71,10 @@ class CurrentWeatherComponent extends ConsumerWidget {
             data.weather[0].description,
             style: appTextTheme.labelSmall,
           ),
+          Text(
+            '${S.of(context).currentWeatherComponentWindSpeed} ${data.wind.speed} m/s',
+            style: appTextTheme.labelSmall,
+          ),
           const SizedBox(
             height: 16,
           ),
@@ -78,20 +82,20 @@ class CurrentWeatherComponent extends ConsumerWidget {
             child: Container(
               padding: const EdgeInsets.all(16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
                     children: [
                       const Icon(
-                        Icons.air,
+                        Icons.water_drop_outlined,
                         size: 32,
                       ),
                       Text(
-                        S.of(context).wind,
+                        S.of(context).currentWeatherComponentHumidity,
                         style: appTextTheme.labelSmall,
                       ),
                       Text(
-                        '${data.wind.speed} m/s',
+                        '${data.main.humidity}%',
                         style: appTextTheme.titleMedium,
                       ),
                     ],

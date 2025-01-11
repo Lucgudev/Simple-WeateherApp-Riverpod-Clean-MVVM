@@ -70,6 +70,26 @@ class S {
     );
   }
 
+  /// `Humidity`
+  String get currentWeatherComponentHumidity {
+    return Intl.message(
+      'Humidity',
+      name: 'currentWeatherComponentHumidity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wind Speed`
+  String get currentWeatherComponentWindSpeed {
+    return Intl.message(
+      'Wind Speed',
+      name: 'currentWeatherComponentWindSpeed',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Lowest Temperature`
   String get currentWeatherComponentLowestTemp {
     return Intl.message(

@@ -1,6 +1,8 @@
 {
   "currentWeatherComponentTitle": "Today Weather",
   "currentWeatherComponentHighestTemp": "Highest Temperature",
+  "currentWeatherComponentHumidity": "Humidity",
+  "currentWeatherComponentWindSpeed": "Wind Speed",
   "currentWeatherComponentLowestTemp": "Lowest Temperature",
   "currentWeatherComponentErrorMessage": "Failed to load current weather data",
   "refresh": "Refresh",

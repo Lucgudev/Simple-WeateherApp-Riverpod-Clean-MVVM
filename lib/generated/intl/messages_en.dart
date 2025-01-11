@@ -28,10 +28,14 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Failed to load current weather data"),
         "currentWeatherComponentHighestTemp":
             MessageLookupByLibrary.simpleMessage("Highest Temperature"),
+        "currentWeatherComponentHumidity":
+            MessageLookupByLibrary.simpleMessage("Humidity"),
         "currentWeatherComponentLowestTemp":
             MessageLookupByLibrary.simpleMessage("Lowest Temperature"),
         "currentWeatherComponentTitle":
             MessageLookupByLibrary.simpleMessage("Today Weather"),
+        "currentWeatherComponentWindSpeed":
+            MessageLookupByLibrary.simpleMessage("Wind Speed"),
         "forecastWeatherComponentErrorMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Failed to load forecast weather data"),
