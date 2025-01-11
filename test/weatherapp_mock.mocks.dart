@@ -3,8 +3,15 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'dart:async' as _i7;
+
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:weatherapp/core/provider/time_provider.dart' as _i2;
+import 'package:weatherapp/core/geo_locator/weather_geo_locator.dart' as _i6;
+import 'package:weatherapp/core/provider/time_provider.dart' as _i5;
+import 'package:weatherapp/domain/entities/current_weather_entity.dart' as _i3;
+import 'package:weatherapp/domain/entities/forecast_weather_entity.dart' as _i4;
+import 'package:weatherapp/domain/entities/location_entity.dart' as _i2;
+import 'package:weatherapp/domain/repositories/weather_repository.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,10 +36,43 @@ class _FakeDateTime_0 extends _i1.SmartFake implements DateTime {
         );
 }
 
+class _FakeLocationEntity_1 extends _i1.SmartFake
+    implements _i2.LocationEntity {
+  _FakeLocationEntity_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeCurrentWeatherEntity_2 extends _i1.SmartFake
+    implements _i3.CurrentWeatherEntity {
+  _FakeCurrentWeatherEntity_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeForecastWeatherEntity_3 extends _i1.SmartFake
+    implements _i4.ForecastWeatherEntity {
+  _FakeForecastWeatherEntity_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [TimeHelper].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTimeHelper extends _i1.Mock implements _i2.TimeHelper {
+class MockTimeHelper extends _i1.Mock implements _i5.TimeHelper {
   @override
   DateTime getCurrentDate() => (super.noSuchMethod(
         Invocation.method(
@@ -54,4 +94,111 @@ class MockTimeHelper extends _i1.Mock implements _i2.TimeHelper {
           ),
         ),
       ) as DateTime);
+}
+
+/// A class which mocks [WeatherGeoLocator].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockWeatherGeoLocator extends _i1.Mock implements _i6.WeatherGeoLocator {
+  @override
+  _i7.Future<_i2.LocationEntity> getCurrentLocation() => (super.noSuchMethod(
+        Invocation.method(
+          #getCurrentLocation,
+          [],
+        ),
+        returnValue: _i7.Future<_i2.LocationEntity>.value(_FakeLocationEntity_1(
+          this,
+          Invocation.method(
+            #getCurrentLocation,
+            [],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i7.Future<_i2.LocationEntity>.value(_FakeLocationEntity_1(
+          this,
+          Invocation.method(
+            #getCurrentLocation,
+            [],
+          ),
+        )),
+      ) as _i7.Future<_i2.LocationEntity>);
+}
+
+/// A class which mocks [WeatherRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockWeatherRepository extends _i1.Mock implements _i8.WeatherRepository {
+  @override
+  _i7.Future<_i3.CurrentWeatherEntity> getCurrentWeather(
+    double? lat,
+    double? lon,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCurrentWeather,
+          [
+            lat,
+            lon,
+          ],
+        ),
+        returnValue: _i7.Future<_i3.CurrentWeatherEntity>.value(
+            _FakeCurrentWeatherEntity_2(
+          this,
+          Invocation.method(
+            #getCurrentWeather,
+            [
+              lat,
+              lon,
+            ],
+          ),
+        )),
+        returnValueForMissingStub: _i7.Future<_i3.CurrentWeatherEntity>.value(
+            _FakeCurrentWeatherEntity_2(
+          this,
+          Invocation.method(
+            #getCurrentWeather,
+            [
+              lat,
+              lon,
+            ],
+          ),
+        )),
+      ) as _i7.Future<_i3.CurrentWeatherEntity>);
+
+  @override
+  _i7.Future<_i4.ForecastWeatherEntity> getForecastWeather(
+    double? lat,
+    double? lon,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getForecastWeather,
+          [
+            lat,
+            lon,
+          ],
+        ),
+        returnValue: _i7.Future<_i4.ForecastWeatherEntity>.value(
+            _FakeForecastWeatherEntity_3(
+          this,
+          Invocation.method(
+            #getForecastWeather,
+            [
+              lat,
+              lon,
+            ],
+          ),
+        )),
+        returnValueForMissingStub: _i7.Future<_i4.ForecastWeatherEntity>.value(
+            _FakeForecastWeatherEntity_3(
+          this,
+          Invocation.method(
+            #getForecastWeather,
+            [
+              lat,
+              lon,
+            ],
+          ),
+        )),
+      ) as _i7.Future<_i4.ForecastWeatherEntity>);
 }

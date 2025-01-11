@@ -7,7 +7,7 @@ import 'package:weatherapp/domain/entities/location_entity.dart';
 part 'weather_geo_locator_impl.g.dart';
 
 @riverpod
-WeatherGeoLocatorImpl weatherGeoLocatorImpl(Ref ref) => WeatherGeoLocatorImpl();
+WeatherGeoLocator weatherGeoLocator(Ref ref) => WeatherGeoLocatorImpl();
 
 class WeatherGeoLocatorImpl implements WeatherGeoLocator {
   @override

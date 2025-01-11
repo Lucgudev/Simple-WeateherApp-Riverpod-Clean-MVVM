@@ -14,7 +14,7 @@ class CurrentWeather extends _$CurrentWeather {
 
   Future<CurrentWeatherEntity> getCurrentWeather() async {
     final location =
-        await ref.read(weatherGeoLocatorImplProvider).getCurrentLocation();
+        await ref.read(weatherGeoLocatorProvider).getCurrentLocation();
 
     final response = await ref
         .read(weatherRepositoryProvider)
