@@ -103,6 +103,7 @@ lib/
 The images used in this project are credited to:
 - [Hand-drawn flat design mountain landscape](https://www.freepik.com/free-vector/hand-drawn-flat-design-mountain-landscape_20008380.htm#fromView=search&page=1&position=2&uuid=c284b9c7-3c87-4bda-881d-40560dcf7646&new_detail=true) by Freepik
 - [Gradient mountain landscape](https://www.freepik.com/free-vector/gradient-mountain-landscape_20008469.htm) by Freepik
+- [Weather free icon](https://www.flaticon.com/free-icon/weather_6451205?term=weather&page=1&position=79&origin=search&related_id=6451205) by Flaticon
 
 ---
 
