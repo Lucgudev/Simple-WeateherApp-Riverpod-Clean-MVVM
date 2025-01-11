@@ -3,6 +3,11 @@
 ## Overview
 This is a simple Weather App built using **Flutter**, designed with **Riverpod** as the state management solution, and structured using **Clean Architecture** and **MVVM (Model-View-ViewModel)** design principles. The app fetches weather data from the OpenWeather API, providing an example of how to integrate external APIs into a clean and maintainable Flutter application.
 
+### Screenshots
+![Screenshot 1](assets/readme_images/readme_image_1.png)
+![Screenshot 2](assets/readme_images/readme_image_2.png)
+![Screenshot 3](assets/readme_images/readme_image_3.png)
+
 ---
 
 ## Clean Architecture
