@@ -40,6 +40,7 @@ dependencies:
   permission_handler: ^11.3.1
   geolocator: ^12.0.0
   geolocator_android: 4.5.5
+  flutter_dotenv: ^5.2.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -74,6 +75,7 @@ flutter:
   assets:
     - assets/images/background_day.svg
     - assets/images/background_night.svg
+    - assets/.env
   fonts:
     - family: Inter
       fonts:

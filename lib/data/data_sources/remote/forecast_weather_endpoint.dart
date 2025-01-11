@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:weatherapp/core/provider/global_providers.dart';
@@ -26,7 +27,7 @@ class ForecastWeatherEndpoint {
           'lat': lat,
           'lon': lon,
           'units': 'metric',
-          'appid': '<INSERT_API_KEY_HERE>',
+          'appid': dotenv.env['OPEN_WEATHER_API_KEY'],
         },
       );
       return ForecastWeatherEntity.fromJson(response.data);
