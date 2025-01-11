@@ -6,7 +6,13 @@ import 'package:weatherapp/generated/l10n.dart';
 import 'package:weatherapp/presentation/screens/home/component/current_weather_provider.dart';
 
 class CurrentWeatherComponent extends ConsumerWidget {
-  const CurrentWeatherComponent({super.key});
+  final VoidCallback onClickCityName;
+  final VoidCallback onClickCurrentLocation;
+
+  const CurrentWeatherComponent(
+      {super.key,
+      required this.onClickCityName,
+      required this.onClickCurrentLocation});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,26 +23,39 @@ class CurrentWeatherComponent extends ConsumerWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                border: Border.all(color: AppColors.textPrimary),
-                borderRadius: BorderRadius.circular(12)),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(right: 8),
-                  child: Icon(
-                    Icons.location_on,
-                    size: 16,
+          InkWell(
+            onTap: onClickCityName,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.textPrimary),
+                  borderRadius: BorderRadius.circular(12)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8),
+                    child: Icon(
+                      Icons.location_on,
+                      size: 16,
+                    ),
                   ),
-                ),
-                Text(
-                  data.name ?? '',
-                  style: appTextTheme.bodyMedium,
-                ),
-              ],
+                  Text(
+                    data.name ?? '',
+                    style: appTextTheme.bodyMedium,
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {
+                      onClickCurrentLocation.call();
+                    },
+                    child: const Icon(
+                      Icons.gps_fixed,
+                      size: 16,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),

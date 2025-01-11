@@ -5,12 +5,17 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i7;
 
+import 'package:flutter/material.dart' as _i12;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:mockito/src/dummies.dart' as _i13;
 import 'package:weatherapp/core/geo_locator/weather_geo_locator.dart' as _i6;
 import 'package:weatherapp/core/provider/time_provider.dart' as _i5;
+import 'package:weatherapp/core/router/weather_app_navigator.dart' as _i11;
+import 'package:weatherapp/domain/entities/city_entity.dart' as _i10;
 import 'package:weatherapp/domain/entities/current_weather_entity.dart' as _i3;
 import 'package:weatherapp/domain/entities/forecast_weather_entity.dart' as _i4;
 import 'package:weatherapp/domain/entities/location_entity.dart' as _i2;
+import 'package:weatherapp/domain/repositories/city_repository.dart' as _i9;
 import 'package:weatherapp/domain/repositories/weather_repository.dart' as _i8;
 
 // ignore_for_file: type=lint
@@ -223,4 +228,118 @@ class MockWeatherRepository extends _i1.Mock implements _i8.WeatherRepository {
           ),
         )),
       ) as _i7.Future<_i4.ForecastWeatherEntity>);
+}
+
+/// A class which mocks [CityRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCityRepository extends _i1.Mock implements _i9.CityRepository {
+  @override
+  _i7.Future<List<_i10.CityEntity>> getSearchedCity(String? cityName) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getSearchedCity,
+          [cityName],
+        ),
+        returnValue:
+            _i7.Future<List<_i10.CityEntity>>.value(<_i10.CityEntity>[]),
+        returnValueForMissingStub:
+            _i7.Future<List<_i10.CityEntity>>.value(<_i10.CityEntity>[]),
+      ) as _i7.Future<List<_i10.CityEntity>>);
+}
+
+/// A class which mocks [WeatherAppNavigator].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockWeatherAppNavigator extends _i1.Mock
+    implements _i11.WeatherAppNavigator {
+  @override
+  void popUntil(String? route) => super.noSuchMethod(
+        Invocation.method(
+          #popUntil,
+          [route],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void popWithResult({Object? result}) => super.noSuchMethod(
+        Invocation.method(
+          #popWithResult,
+          [],
+          {#result: result},
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i7.Future<Object?> pushNamedWithResult(
+    String? route, {
+    Object? arguments,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #pushNamedWithResult,
+          [route],
+          {#arguments: arguments},
+        ),
+        returnValue: _i7.Future<Object?>.value(),
+        returnValueForMissingStub: _i7.Future<Object?>.value(),
+      ) as _i7.Future<Object?>);
+
+  @override
+  _i7.Future<Object?> pushReplacementNamedWithResult(
+    String? route, {
+    Object? arguments,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #pushReplacementNamedWithResult,
+          [route],
+          {#arguments: arguments},
+        ),
+        returnValue: _i7.Future<Object?>.value(),
+        returnValueForMissingStub: _i7.Future<Object?>.value(),
+      ) as _i7.Future<Object?>);
+
+  @override
+  _i7.Future<Object?> pushNamedAndRemoveUntilWithResult(
+    String? newRouteName,
+    bool Function(_i12.Route<dynamic>)? predicate, {
+    Object? arguments,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #pushNamedAndRemoveUntilWithResult,
+          [
+            newRouteName,
+            predicate,
+          ],
+          {#arguments: arguments},
+        ),
+        returnValue: _i7.Future<Object?>.value(),
+        returnValueForMissingStub: _i7.Future<Object?>.value(),
+      ) as _i7.Future<Object?>);
+
+  @override
+  String currentRoute() => (super.noSuchMethod(
+        Invocation.method(
+          #currentRoute,
+          [],
+        ),
+        returnValue: _i13.dummyValue<String>(
+          this,
+          Invocation.method(
+            #currentRoute,
+            [],
+          ),
+        ),
+        returnValueForMissingStub: _i13.dummyValue<String>(
+          this,
+          Invocation.method(
+            #currentRoute,
+            [],
+          ),
+        ),
+      ) as String);
 }

@@ -12,5 +12,12 @@
   "cancel": "Cancel",
   "setting": "Setting",
   "rationaleTitle": "Unable to detect location",
-  "rationaleDesc": "Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again."
+  "rationaleDesc": "Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again.",
+  "cityScreenAppBarTitle": "Search City",
+  "cityScreenSearchHint": "Search city...",
+  "citySecreenSearchBtn": "Search",
+  "latitude": "Latitude",
+  "longitude": "Longitude",
+  "cityScreenEmptyResult": "No data",
+  "cityScreenError": "Failed to load city"
 }

@@ -23,6 +23,15 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cityScreenAppBarTitle":
+            MessageLookupByLibrary.simpleMessage("Search City"),
+        "cityScreenEmptyResult":
+            MessageLookupByLibrary.simpleMessage("No data"),
+        "cityScreenError":
+            MessageLookupByLibrary.simpleMessage("Failed to load city"),
+        "cityScreenSearchHint":
+            MessageLookupByLibrary.simpleMessage("Search city..."),
+        "citySecreenSearchBtn": MessageLookupByLibrary.simpleMessage("Search"),
         "currentWeatherComponentErrorMessage":
             MessageLookupByLibrary.simpleMessage(
                 "Failed to load current weather data"),
@@ -41,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Failed to load forecast weather data"),
         "forecastWeatherComponentTitle":
             MessageLookupByLibrary.simpleMessage("Hourly Forecast"),
+        "latitude": MessageLookupByLibrary.simpleMessage("Latitude"),
+        "longitude": MessageLookupByLibrary.simpleMessage("Longitude"),
         "rationaleDesc": MessageLookupByLibrary.simpleMessage(
             "Please go to Settings › Privacy & Security › Location Services › TipTip, then allow the location access and try again."),
         "rationaleTitle":

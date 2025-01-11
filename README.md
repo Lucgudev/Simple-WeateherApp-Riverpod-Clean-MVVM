@@ -7,6 +7,7 @@ This is a simple Weather App built using **Flutter**, designed with **Riverpod**
 ![Screenshot 1](assets/readme_images/readme_image_1.png)
 ![Screenshot 2](assets/readme_images/readme_image_2.png)
 ![Screenshot 3](assets/readme_images/readme_image_3.png)
+![Screenshot 4](assets/readme_images/readme_image_4.png)
 
 ---
 

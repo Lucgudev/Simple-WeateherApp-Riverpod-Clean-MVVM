@@ -189,6 +189,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Search City`
+  String get cityScreenAppBarTitle {
+    return Intl.message(
+      'Search City',
+      name: 'cityScreenAppBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search city...`
+  String get cityScreenSearchHint {
+    return Intl.message(
+      'Search city...',
+      name: 'cityScreenSearchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get citySecreenSearchBtn {
+    return Intl.message(
+      'Search',
+      name: 'citySecreenSearchBtn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Latitude`
+  String get latitude {
+    return Intl.message(
+      'Latitude',
+      name: 'latitude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Longitude`
+  String get longitude {
+    return Intl.message(
+      'Longitude',
+      name: 'longitude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data`
+  String get cityScreenEmptyResult {
+    return Intl.message(
+      'No data',
+      name: 'cityScreenEmptyResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load city`
+  String get cityScreenError {
+    return Intl.message(
+      'Failed to load city',
+      name: 'cityScreenError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

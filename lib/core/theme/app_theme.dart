@@ -29,9 +29,6 @@ ThemeData get appTheme {
       constraints: const BoxConstraints(
         minHeight: 44,
       ),
-      // hintStyle: appTextTheme.bodyMedium?.copyWith(
-      //   color: AppColors.textTertiary,
-      // ),
       iconColor: AppColors.textTertiary,
       suffixIconColor: AppColors.textTertiary,
       errorStyle: const TextStyle(

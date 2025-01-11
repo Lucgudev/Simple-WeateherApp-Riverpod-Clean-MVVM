@@ -24,16 +24,12 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
   @override
   Future<CurrentWeatherEntity> getCurrentWeather(double lat, double lon) async {
-    return await _currentWeatherEndpoint
-        .getCurrentWeather(lat, lon)
-        .then((value) => value);
+    return await _currentWeatherEndpoint.getCurrentWeather(lat, lon);
   }
 
   @override
   Future<ForecastWeatherEntity> getForecastWeather(
       double lat, double lon) async {
-    return await _forecastWeatherEndpoint
-        .getForecastWeather(lat, lon)
-        .then((value) => value);
+    return await _forecastWeatherEndpoint.getForecastWeather(lat, lon);
   }
 }

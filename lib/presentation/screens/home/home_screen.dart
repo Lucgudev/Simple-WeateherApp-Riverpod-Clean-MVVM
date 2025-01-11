@@ -49,9 +49,19 @@ class HomeScreen extends ConsumerWidget {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(16),
-                  child: CurrentWeatherComponent(),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: CurrentWeatherComponent(
+                    onClickCityName: () {
+                      ref
+                          .read(homeScreenViewModelProvider.notifier)
+                          .navigateToCityScreen();
+                    },
+                    onClickCurrentLocation: () {
+                      ref.invalidate(currentWeatherProvider);
+                      ref.invalidate(forecastWeatherProvider);
+                    },
+                  ),
                 ),
                 const SizedBox(
                   height: 16,
