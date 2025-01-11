@@ -99,6 +99,13 @@ lib/
 
 ---
 
+## Credits
+The images used in this project are credited to:
+- [Hand-drawn flat design mountain landscape](https://www.freepik.com/free-vector/hand-drawn-flat-design-mountain-landscape_20008380.htm#fromView=search&page=1&position=2&uuid=c284b9c7-3c87-4bda-881d-40560dcf7646&new_detail=true) by Freepik
+- [Gradient mountain landscape](https://www.freepik.com/free-vector/gradient-mountain-landscape_20008469.htm) by Freepik
+
+---
+
 ## Contributing
 Feel free to submit issues or contribute to the project by creating pull requests. All contributions are welcome!
 
