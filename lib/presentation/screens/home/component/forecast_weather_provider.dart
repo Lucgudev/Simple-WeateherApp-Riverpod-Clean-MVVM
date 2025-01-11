@@ -36,10 +36,15 @@ class ForecastWeather extends _$ForecastWeather {
 
       // Format the DateTime object to '13 Apr 2021' format
       String formattedDate = DateFormat('dd MMM yyyy').format(dateTime);
-      if (groupedByDay.containsKey(formattedDate)) {
-        groupedByDay[formattedDate]!.add(forecast);
+      //only pick 3 day forecast
+      if (groupedByDay.length < 3) {
+        if (groupedByDay.containsKey(formattedDate)) {
+          groupedByDay[formattedDate]!.add(forecast);
+        } else {
+          groupedByDay[formattedDate] = [forecast];
+        }
       } else {
-        groupedByDay[formattedDate] = [forecast];
+        break;
       }
     }
     return groupedByDay;
