@@ -94,6 +94,28 @@ class MockTimeHelper extends _i1.Mock implements _i5.TimeHelper {
           ),
         ),
       ) as DateTime);
+
+  @override
+  DateTime getTimeFromTimestamp(int? timestamp) => (super.noSuchMethod(
+        Invocation.method(
+          #getTimeFromTimestamp,
+          [timestamp],
+        ),
+        returnValue: _FakeDateTime_0(
+          this,
+          Invocation.method(
+            #getTimeFromTimestamp,
+            [timestamp],
+          ),
+        ),
+        returnValueForMissingStub: _FakeDateTime_0(
+          this,
+          Invocation.method(
+            #getTimeFromTimestamp,
+            [timestamp],
+          ),
+        ),
+      ) as DateTime);
 }
 
 /// A class which mocks [WeatherGeoLocator].

@@ -1,5 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:weatherapp/core/geo_locator/weather_geo_locator_impl.dart';
+import 'package:weatherapp/core/provider/time_provider.dart';
 import 'package:weatherapp/data/repositories/weather_repository_impl.dart';
 import 'package:weatherapp/domain/entities/current_weather_entity.dart';
 import 'package:intl/intl.dart';
@@ -24,7 +25,9 @@ class ForecastWeather extends _$ForecastWeather {
 
     Map<String, List<CurrentWeatherEntity>> groupedByDay = {};
     for (var forecast in response.list) {
-      String dateKey = DateTime.fromMillisecondsSinceEpoch(forecast.dt * 1000)
+      String dateKey = ref
+          .read(timeHelperProvider)
+          .getTimeFromTimestamp(forecast.dt * 1000)
           .toString()
           .split(' ')[0]; // Extract only the date
 

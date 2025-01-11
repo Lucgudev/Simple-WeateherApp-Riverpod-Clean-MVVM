@@ -10,11 +10,17 @@ TimeHelper timeHelper(Ref ref) {
 
 abstract class TimeHelper {
   DateTime getCurrentDate();
+  DateTime getTimeFromTimestamp(int timestamp);
 }
 
 class TimeHelperImpl implements TimeHelper {
   @override
   DateTime getCurrentDate() {
     return DateTime.now();
+  }
+
+  @override
+  DateTime getTimeFromTimestamp(int timestamp) {
+    return DateTime.fromMillisecondsSinceEpoch(timestamp);
   }
 }
