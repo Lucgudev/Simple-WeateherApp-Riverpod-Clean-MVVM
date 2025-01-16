@@ -17,16 +17,12 @@ class CityScreenViewModel extends _$CityScreenViewModel {
   }
 
   Future<void> searchCity(String cityName) async {
-    try {
-      state = const AsyncValue.loading();
-      state = await AsyncValue.guard(() async {
-        final response =
-            await ref.read(cityRepositoryProvider).getSearchedCity(cityName);
-        return response;
-      });
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() async {
+      final response =
+          await ref.read(cityRepositoryProvider).getSearchedCity(cityName);
+      return response;
+    });
   }
 
   void navigateBackToHomeScreen({required double lat, required double long}) {
